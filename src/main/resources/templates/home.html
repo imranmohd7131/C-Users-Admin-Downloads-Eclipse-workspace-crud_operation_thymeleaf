@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div th:insert="all_css"> </div>
+
+<center>
+<h1 style="color:red;">
+<p th:text="${msg}">
+</p></h1></center>
+
+<p class="text-center fs-3">Employee Login</p>	
+
+<form th:action="@{/login}" method="post">
+ <center><div class="mb-3" style="width:300px" >
+<label class="form-label">enter your email address</label>
+<input type="email" name="email" class="form-control" required="required"><br>
+<label class="form-label">enter your password</label>
+<input type="password" name="pswd" class="form-control" required="required"><br>
+<button type="submit">Login</button>
+</div>					
+</form>
+
+</body>
+</html>

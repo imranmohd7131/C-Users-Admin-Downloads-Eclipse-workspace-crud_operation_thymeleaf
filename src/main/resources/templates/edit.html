@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body> 
+
+<th:block th:if=${session.email==null}>
+   <th:block th:insert="home">
+   </th:block>
+</th:block>
+<th:block th:if=${session.email!=null}>
+
+<div th:insert="all_css"> </div>
+<div th:insert="navbar"> </div>
+<div class="container p-2">
+	<div class="row">
+		<div class="col-md-6 offset-md-3">
+			<div class="card">
+				<div class="card-body">
+				<p class="fs-3 text-center p-2">Edit Employee</p>
+				
+<pre>
+	<form action="#" th:action="@{/update}" th:object="${data}" method="post">
+	<div class="mb-3" >
+	 	<label class="form-label">Enter employee id which you want to edit</label>
+		<input type="number" th:field="*{id}" id="id" class="form-control"><br>
+		<label class="form-label">employee name</label>
+		<input type="text" th:field="*{name}" id="name" class="form-control"><br>  
+		<label class="form-label">employee location</label>
+		<input type="text" th:field="*{loc}" id="loc" class="form-control"><br>		
+		<button type="submit" class="btn btn-primary">Update</button>
+	</div>
+	</form>
+</pre>
+	</div>
+		    </div>
+		</div>
+    </div>
+    </div>
+    
+    </th:block>
+
+</body>
+</html>

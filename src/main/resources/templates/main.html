@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<th:block th:if=${session.email==null}>
+    <th:block th:insert="home">
+	</th:block>
+</th:block>
+<th:block th:if=${session.email!=null}>
+
+<div th:insert="all_css"> </div>
+<div th:insert="navbar"> </div>
+<div class="container p-5">
+<center><h4><p th:text="${msg}"></h4></center>
+<center><h4 style="color:red;"><p th:text="${msgg}"></h4></center>
+<p class="text-center fs-1">All Employees Details</p>
+<p class="text-center"></p>
+<table class="table">
+  <thead>
+    <tr >
+      <th scope="col">Employee ID</th>
+      <th scope="col">Employee Name</th>
+      <th scope="col">Employee Location</th>
+    </tr>
+    <tr  th:each="trav : ${read}">
+    <td th:text="${trav.id}"></td>   
+	<td th:text="${trav.name}"></td>
+	<td th:text="${trav.loc}"></td>
+	<td><a th:href="@{/edit/{id}(id=${trav.id})}" class="btn btn-sm btn-primary">Edit</a>
+       <a th:href="@{/delete/{id}(id=${trav.id})}" class="btn btn-sm btn-danger ms-1">Delete</a>
+      </td>
+	</tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+</div>
+
+</th:block>
+
+</body>
+</html>

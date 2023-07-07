@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<th:block th:if=${session.email==null}>
+   <th:block th:insert="home">
+   </th:block>
+</th:block>
+<th:block th:if=${session.email!=null}>
+
+<div th:insert="all_css"> </div>
+<div th:insert="navbar"> </div>
+<div class="container p-2">
+	<div class="row">
+		<div class="col-md-7 offset-md-3">
+			<div class="card">
+				<div class="card-body">
+				<p class="fs-3 text-center p-2">Add Employee</p>
+<pre>
+				<form th:action="@{/save}" method="post">
+				 <div class="mb-3">
+					<label class="form-label">employee name</label>
+					<input type="text" name="name" class="form-control"><br>  
+					<label class="form-label">employee location</label>
+					<input type="text" name="loc" class="form-control"><br>
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</div>
+				</form>
+				</pre>
+</div>
+		    </div>
+		</div>
+    </div>
+    </div>		
+    
+    </th:block>
+    		
+</body>
+</html>
